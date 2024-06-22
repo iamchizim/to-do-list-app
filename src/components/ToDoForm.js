@@ -1,29 +1,28 @@
-import React, { useState } from "react";
-import ToDoApp from "./ToDoApp.js";
+import React, { useState } from 'react';
 
-function ToDoForm({addTask}) {
-  const [inputValue, setInputValue] = useState("");
-  function handleChange(event) {
-    setInputValue(event.target.value);
-  }
-  function handleSubmit(event) {
-    event.preventDefault();
-    if (inputValue.trim() !== '') {
-      addTask({ text: inputValue, completed: false });
-      setInputValue('');
-    }
-  }
+function ToDoForm({ addTask }) {
+    const [task, setTask] = useState('');
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={handleChange}
-        placeholder="Enter a new task"
-      />
-      <button type="submit">Add Task</button>
-    </form>
-  );
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (task.trim()) {
+            addTask({ text: task, completed: false });
+            setTask('');
+        }
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <input
+                type="text"
+                value={task}
+                onChange={(e) => setTask(e.target.value)}
+                placeholder="Enter a new task"
+            />
+            <button type="submit">Add Task</button>
+        </form>
+    );
 }
+
 export default ToDoForm;
+

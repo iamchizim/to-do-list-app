@@ -1,5 +1,4 @@
 import React from "react";
-import ToDoApp from "./ToDoApp";
 function TodoItem({ task, deleteTask, toggleTaskCompletion }) {
   return (
       <li>
