@@ -32,6 +32,7 @@ function ToDoApp() {
 
     return (
         <div>
+          <h2>TO-DO LIST APP</h2>
             <ToDoForm addTask={addTask} />
             <ToDoList
                 tasks={tasks}
